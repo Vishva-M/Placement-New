@@ -1,0 +1,33 @@
+With a Temporary Variable
+
+public class SimpleReverseWithTemp {
+    public static void main(String[] args) {
+        String input = "HelloWorld";
+        char[] chars = input.toCharArray(); 
+        int len = chars.length;
+        for (int i = 0; i < len / 2; i++) {
+            char temp = chars[i];             
+            chars[i] = chars[len - 1 - i];    
+            chars[len - 1 - i] = temp;       
+        }
+        String result = new String(chars);
+        System.out.println("Reversed (with temp): " + result);
+    }
+}
+
+Without a Temporary Variable
+
+public class SimpleReverseWithoutTemp {
+    public static void main(String[] args) {
+        String input = "HelloWorld";
+        char[] chars = input.toCharArray();
+        int len = chars.length;
+        for (int i = 0; i < len / 2; i++) {
+            chars[i] = (char) (chars[i] ^ chars[len - 1 - i]);
+            chars[len - 1 - i] = (char) (chars[i] ^ chars[len - 1 - i]);
+            chars[i] = (char) (chars[i] ^ chars[len - 1 - i]);
+        }
+        String result = new String(chars);
+        System.out.println("Reversed (without temp): " + result);
+    }
+}
