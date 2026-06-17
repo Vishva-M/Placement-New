@@ -1,0 +1,14 @@
+public class SimpleNumberPattern {
+    public static void main(String[] args) {
+        int totalRows = 3;
+        for (int i = 1; i <= totalRows; i++) {
+            for (int up = 1; up <= i; up++) {
+                System.out.print(up);
+            }
+            for (int down = i - 1; down >= 1; down--) {
+                System.out.print(down);
+            }
+            System.out.println();
+        }
+    }
+}
